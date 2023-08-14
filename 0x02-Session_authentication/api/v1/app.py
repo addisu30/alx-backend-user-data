@@ -58,9 +58,9 @@ def before_request() -> str:
     """
     if auth is None:
         return
-    if auth.require_auth()
+    if auth.require_auth(
             path=request.path,
-            exclude_paths=[
+            expath=[
                 '/api/v1/status/',
                 '/api/v1/unauthorized/',
                 '/api/v1/forbidden/',
