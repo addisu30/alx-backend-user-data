@@ -60,7 +60,7 @@ class SessionAuth(Auth):
         Deletes a user session
         """
         if request is None:
-/            return False
+            return False
         session_cookie = auth.current_user(request)
         if session_cookie is None:
             return False
