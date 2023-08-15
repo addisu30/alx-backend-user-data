@@ -46,7 +46,7 @@ def bef_req():
             '/api/v1/auth_session/login/'
         ]
         if auth.require_auth(request.path, excluded):
-            cookie = auth.Session_cookie(request)
+            cookie = auth.current_user(request)
             if auth.authorization_header(request) is None and cookie is None:
                 abort(401, description="Unauthorized")
             if auth.current_user(request) is None:
