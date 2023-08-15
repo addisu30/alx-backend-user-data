@@ -20,7 +20,7 @@ class SessionAuth(Auth):
         Creates a Session ID for a user with id user_id
         Args:
             user_id (str): user's user id
-        Return:
+       Return:
             None is user_id is None or not a string
             Session ID in string format
         """
@@ -50,7 +50,7 @@ class SessionAuth(Auth):
         Return:
             User instance
         """
-        session_cookie = self.session_cookie(request)
+        session_cookie = auth.current_user(request)
         user_id = self.user_id_for_session_id(session_cookie)
         user = User.get(user_id)
         return user
@@ -60,8 +60,8 @@ class SessionAuth(Auth):
         Deletes a user session
         """
         if request is None:
-            return False
-        session_cookie = self.session_cookie(request)
+/            return False
+        session_cookie = auth.current_user(request)
         if session_cookie is None:
             return False
         user_id = self.user_id_for_session_id(session_cookie)
