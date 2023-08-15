@@ -50,7 +50,7 @@ class SessionAuth(Auth):
         Return:
             User instance
         """
-        session_cookie = self.current_user(request)
+        session_cookie = self.session_cookie(request)
         user_id = self.user_id_for_session_id(session_cookie)
         user = User.get(user_id)
         return user
@@ -61,7 +61,7 @@ class SessionAuth(Auth):
         """
         if request is None:
             return False
-        session_cookie = self.current_user(request)
+        session_cookie = self.session_cookie(request)
         if session_cookie is None:
             return False
         user_id = self.user_id_for_session_id(session_cookie)
