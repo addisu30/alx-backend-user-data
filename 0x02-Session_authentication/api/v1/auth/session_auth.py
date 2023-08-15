@@ -20,7 +20,7 @@ class SessionAuth(Auth):
         Creates a Session ID for a user with id user_id
         Args:
             user_id (str): user's user id
-       Return:
+        Return:
             None is user_id is None or not a string
             Session ID in string format
         """
